@@ -53,9 +53,9 @@ chmod 600 /home/ec2-user/.aws/config
 
 # Clone eksctl repo and create EKS cluster
 cd /home/ec2-user
-sudo -u ec2-user git clone https://github.com/daws-88s/eksctl.git
+sudo -u ec2-user git clone https://github.com/manasavosur/eksctl.git
 cd eksctl
-sudo -u ec2-user /usr/local/bin/eksctl create cluster -f eks.yaml
+sudo -u ec2-user /usr/local/bin/eksctl create cluster -f eks.yml
 
 # Authenticate kubectl with the cluster
 sudo -u ec2-user aws eks update-kubeconfig --region us-east-1 --name roboshop
