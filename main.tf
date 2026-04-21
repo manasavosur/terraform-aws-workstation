@@ -25,7 +25,6 @@ resource "aws_instance" "workstation" {
     },
     local.common_tags
   )
-  depends_on = [terraform_data.cluster_destroy]
 }
 
 resource "terraform_data" "cluster_destroy" {
@@ -39,7 +38,7 @@ resource "terraform_data" "cluster_destroy" {
     inline = [
       "eksctl delete cluster -f /home/ec2-user/eksctl/eks.yml --wait"
     ]
-    on_failure = continue
+    #on_failure = continue
     connection {
       type     = "ssh"
       host     = self.input.host
