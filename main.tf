@@ -25,6 +25,7 @@ resource "aws_instance" "workstation" {
     },
     local.common_tags
   )
+  depends_on = [terraform_data.cluster_destroy]
 }
 
 resource "terraform_data" "cluster_destroy" {
